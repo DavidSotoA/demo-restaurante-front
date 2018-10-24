@@ -5,7 +5,7 @@ import * as React from 'react';
 
 interface Istate {
   content: string;
-}
+} 
 
 class App extends React.Component<{}, Istate> {
   
