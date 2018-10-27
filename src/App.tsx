@@ -1,7 +1,10 @@
 import './App.css';
+import Header from './components/Header'
 import axios from 'axios';
-import logo from './logo.svg';
 import * as React from 'react';
+
+// import { Button } from '/home/skorpionx/demo-restaurante/front-restaurante/node_modules/reactstrap/dist/reactstrap.js';
+
 
 interface Istate {
   content: string;
@@ -31,10 +34,7 @@ class App extends React.Component<{}, Istate> {
   public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+        <Header />
         <p className="App-intro">
           {this.state.content}
         </p>
