@@ -2,7 +2,6 @@ import axios from 'axios';
 import * as React from 'react';
 import { Button } from 'reactstrap';
 
-import Header from './components/Header';
 import Menu from './components/Menu';
 import NavigationBar from './components/NavigationBar'
 
@@ -43,18 +42,14 @@ class App extends React.Component<{}, Istate> {
 
   public render() {
     return (
-      <div className="App">
-        <Header />
-        <p className="App-intro">
-          {this.state.content}
-        </p>
-        <p>
-          <Menu />
-        </p>
+      <div>
         <NavigationBar options={this.state.headerOptions} />
         <p>
           {this.state.content}
           <Button color="primary">Hola</Button>
+        </p>
+        <p>
+          <Menu />
         </p>
       </div>
     );
