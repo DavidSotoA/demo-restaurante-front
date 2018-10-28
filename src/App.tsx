@@ -1,7 +1,9 @@
 import './App.css';
-import Header from './components/Header'
 import axios from 'axios';
 import * as React from 'react';
+
+import Header from './components/Header';
+import Menu from './components/Menu';
 
 // import { Button } from '/home/skorpionx/demo-restaurante/front-restaurante/node_modules/reactstrap/dist/reactstrap.js';
 
@@ -37,6 +39,9 @@ class App extends React.Component<{}, Istate> {
         <Header />
         <p className="App-intro">
           {this.state.content}
+        </p>
+        <p>
+          <Menu />
         </p>
       </div>
     );
