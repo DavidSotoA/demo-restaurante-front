@@ -1,9 +1,9 @@
 import axios from 'axios';
 import * as React from 'react';
-import { Button } from 'reactstrap';
 
 import Menu from './components/Menu';
 import NavigationBar from './components/NavigationBar'
+import Summary from './components/ShoppingCart/Summary';
 
 import './App.css';
 
@@ -45,13 +45,11 @@ class App extends React.Component<{}, Istate> {
       <div>
         <NavigationBar options={this.state.headerOptions} />
         <p>
-          {this.state.content}
-          <Button color="primary">Hola</Button>
-        </p>
-        <p>
+          <Summary />
           <Menu />
         </p>
       </div>
+      
     );
   }
 

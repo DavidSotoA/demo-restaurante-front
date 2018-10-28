@@ -5,7 +5,8 @@
     "ordered-imports": [true, {
       "import-sources-order": "any",
       "named-imports-order": "any"
-    }]
+    }],
+    "interface-name" : false
   },
   "jsRules": {
     "no-console": false 
