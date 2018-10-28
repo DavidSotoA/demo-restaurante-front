@@ -1,20 +1,25 @@
 import './App.css';
-import Header from './components/Header'
+import NavigationBar from './components/NavigationBar'
 import axios from 'axios';
 import * as React from 'react';
-
-// import { Button } from '/home/skorpionx/demo-restaurante/front-restaurante/node_modules/reactstrap/dist/reactstrap.js';
+import { Button } from 'reactstrap';
 
 
 interface Istate {
-  content: string;
+  content: string,
+  headerOptions: Array<{name: string, url: string, id: number}>;
 } 
 
 class App extends React.Component<{}, Istate> {
   
   constructor(props: {}){
     super(props)
-    this.state = { content: "Cargando..." };
+    this.state = {  content: "Cargando...",
+                    headerOptions: [ 
+                      {name: 'opcion1', url: "#", id: 1},
+                      {name: 'opcion2', url: "#", id: 2},
+                      {name: 'opcion3', url: "#", id: 3}
+                    ] };
   }
 
   public componentDidMount() {
@@ -33,11 +38,20 @@ class App extends React.Component<{}, Istate> {
 
   public render() {
     return (
-      <div className="App">
-        <Header />
-        <p className="App-intro">
-          {this.state.content}
-        </p>
+      <div>
+
+
+            <NavigationBar options={this.state.headerOptions}/>
+
+    
+
+
+            <p>
+              {this.state.content}
+              <Button color="primary">Hola</Button>
+            </p>
+   
+
       </div>
     );
   }
