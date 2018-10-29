@@ -39,15 +39,15 @@ class NavigationBar extends React.Component<IPnavigationBar, ISnavigationBar> {
 
     public render() {
         return (
-                <nav>
-                    <Navbar color="light" light={true} expand="sm" fixed={'top'}>
-                        <NavbarBrand href="/">( ͡° ͜ʖ͡°)</NavbarBrand>
-                        <NavbarToggler onClick={this.toggle} />
-                        <Collapse isOpen={this.state.open} navbar={true}>
-                            {this.renderOptions(this.props.options)}
-                        </Collapse>
-                    </Navbar>
-                </nav>
+ 
+            <Navbar color="light" light={true} expand="sm" fixed={'top'}>
+                <NavbarBrand href="/">( ͡° ͜ʖ͡°)</NavbarBrand>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.open} navbar={true}>
+                    {this.renderOptions(this.props.options)}
+                </Collapse>
+            </Navbar>
+
         )
 
     }
