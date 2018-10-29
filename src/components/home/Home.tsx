@@ -25,22 +25,22 @@ class Home extends React.Component<IPhome, IShome> {
         super(props);
         this.state = { activeIndex : 0, animating: false, gray: 1}
 
-        this.updateBlur     = this.updateBlur.bind(this);
+        this.updateBrightness     = this.updateBrightness.bind(this);
         this.renderSlides   = this.renderSlides.bind(this); 
         this.updateCarousel = this.updateCarousel.bind(this);
     }
 
     public componentDidMount() {
-        window.addEventListener("scroll", this.updateBlur);
+        window.addEventListener("scroll", this.updateBrightness);
       }
     
     public componentWillUnmount() {
-        window.removeEventListener("scroll", this.updateBlur);
+        window.removeEventListener("scroll", this.updateBrightness);
     }
     
-    public updateBlur(){
+    public updateBrightness(){
         const scrollPosition = window.scrollY;
-        this.setState({  gray: 1 - scrollPosition/400 });
+        this.setState({  gray: 1 - scrollPosition*1.7/window.innerHeight });
     }
 
     public updateCarousel(index: any, element: any) {
