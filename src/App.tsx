@@ -12,7 +12,7 @@ import './css/app.css'
 interface Istate {
   content: string,
   headerOptions: Array<{ name: string, url: string, id: number }>;
-  slideOptions: Array<{src: string, legend: string, id: number}>
+  slideOptions: Array<{src: string, legend: string, id: number }>
 }
 
 

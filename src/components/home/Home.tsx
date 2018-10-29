@@ -5,7 +5,8 @@ import { Carousel } from 'react-responsive-carousel';
 
 interface IShome {
     activeIndex : number,
-    animating: boolean
+    animating: boolean,
+    blur: number
 }
 
 interface IslideItem {
@@ -22,14 +23,29 @@ interface IPhome {
 class Home extends React.Component<IPhome, IShome> {
     constructor(props: IPhome) {
         super(props);
-        this.state = { activeIndex : 0, animating: false}
+        this.state = { activeIndex : 0, animating: false, blur: 0}
 
+        this.updateBlur     = this.updateBlur.bind(this);
+        this.renderSlides   = this.renderSlides.bind(this); 
+    }
+
+    public componentDidMount() {
+        window.addEventListener("scroll", this.updateBlur);
+      }
+    
+    public componentWillUnmount() {
+        window.removeEventListener("scroll", this.updateBlur);
+    }
+    
+    public updateBlur(){
+        const scrollPosition = window.scrollY;
+        this.setState({ blur: scrollPosition/50 });
     }
 
     public renderSlides() {
         return this.props.items.map( item => (
             <div key={item.id}>
-                <img style={{width: "100vw", height: "100vh"}} src={item.src} />
+                <img style={{width: "100vw", height: "100vh", filter: `blur(${this.state.blur}px)`}} src={item.src} />
                 {/* <p>{item.legend}</p> */}
             </div>
         ));
