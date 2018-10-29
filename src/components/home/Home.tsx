@@ -6,7 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 interface IShome {
     activeIndex : number,
     animating: boolean,
-    blur: number
+    gray: number
 }
 
 interface IslideItem {
@@ -23,7 +23,7 @@ interface IPhome {
 class Home extends React.Component<IPhome, IShome> {
     constructor(props: IPhome) {
         super(props);
-        this.state = { activeIndex : 0, animating: false, blur: 0}
+        this.state = { activeIndex : 0, animating: false, gray: 1}
 
         this.updateBlur     = this.updateBlur.bind(this);
         this.renderSlides   = this.renderSlides.bind(this); 
@@ -40,7 +40,7 @@ class Home extends React.Component<IPhome, IShome> {
     
     public updateBlur(){
         const scrollPosition = window.scrollY;
-        this.setState({ blur: scrollPosition/40 });
+        this.setState({  gray: 1 - scrollPosition/400 });
     }
 
     public updateCarousel(index: any, element: any) {
@@ -50,7 +50,7 @@ class Home extends React.Component<IPhome, IShome> {
     public renderSlides() {
         return this.props.items.map( item => (
             <div style={{userSelect: "none"}} key={item.id}>
-                <img style={{width: "100vw", height: "100vh", filter: `blur(${this.state.blur}px)`}} src={item.src} />
+                <img style={{width: "100vw", height: "100vh", filter: `brightness(${this.state.gray})`}} src={item.src} />
                 {/* <p>{item.legend}</p> */}
             </div>
         ));

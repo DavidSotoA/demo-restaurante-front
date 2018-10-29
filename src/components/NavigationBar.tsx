@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Navbar, NavbarBrand, NavItem, Nav, NavLink, NavbarToggler, Collapse } from 'reactstrap';
 
 interface Ioption { name: string, url: string, id: number};
 
@@ -25,12 +24,14 @@ class NavigationBar extends React.Component<IPnavigationBar, ISnavigationBar> {
     public renderOptions(options: Ioption[]) {
         const optionList = options.map( option => {
                 return (
-                    <NavItem key={option.id}>
-                        <NavLink href={option.url}>{option.name}</NavLink>
-                    </NavItem>
+ 
+                    <li key={option.id} className="nav-item active">
+                        <a className="nav-link" href={option.url}>{option.name}</a>
+                    </li>
+ 
                 )
         })
-        return <Nav className="ml-auto" navbar={true}>{optionList}</Nav>
+        return <ul className="navbar-nav ml-auto">{optionList}</ul>
     }
 
     public toggle() {
@@ -39,14 +40,17 @@ class NavigationBar extends React.Component<IPnavigationBar, ISnavigationBar> {
 
     public render() {
         return (
- 
-            <Navbar color="light" light={true} expand="sm" fixed={'top'}>
-                <NavbarBrand href="/">( ͡° ͜ʖ͡°)</NavbarBrand>
-                <NavbarToggler onClick={this.toggle} />
-                <Collapse isOpen={this.state.open} navbar={true}>
-                    {this.renderOptions(this.props.options)}
-                </Collapse>
-            </Navbar>
+
+            <nav className="navbar navbar-expand-sm navbar-light fixed-top">
+                <a className="navbar-brand" href="/">( ͡° ͜ʖ͡°)</a>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"/>
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        {this.renderOptions(this.props.options)}
+                    </div>
+            </nav>
 
         )
 

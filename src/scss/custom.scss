@@ -2,8 +2,6 @@
 $navbar-padding-y: 30px;
 $navbar-padding-x: 30px;
 
-$navbar-light-color: rgba(white, .7);
-$navbar-light-hover-color:  rgba(white, 1) !default;
 
 $navbar-nav-link-padding-x: 1.2rem;
 
@@ -16,4 +14,10 @@ $navbar-nav-link-padding-x: 1.2rem;
 
 .navbar-expand-sm .navbar-nav .nav-link {
     font-size: 1.5rem;
+    color: rgba(white, .7) !important;
+}
+
+.navbar-expand-sm .navbar-nav .nav-link:hover {
+
+    color: rgba(white, 1) !important;
 }
