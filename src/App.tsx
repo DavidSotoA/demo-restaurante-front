@@ -12,7 +12,7 @@ import './css/app.css'
 interface Istate {
   content: string,
   headerOptions: Array<{ name: string, url: string, id: number }>;
-  slideOptions: Array<{src: string, alt: string, caption: string, id: number}>
+  slideOptions: Array<{src: string, legend: string, id: number}>
 }
 
 
@@ -30,22 +30,19 @@ class App extends React.Component<{}, Istate> {
 
       slideOptions : [
         { 
-          alt:"ased",
-          caption: "Arepas",
           id: 1,
+          legend: "Arepas",
           src: "https://static1.squarespace.com/static/50182a8dc4aa5fb338c47d0b/5536e76ae4b0d22ae69a4f16/5536e76ee4b0d22ae69a585d/1429661945758/repitas-recipe.png",  
         },
         { 
-          alt:"ased",
-          caption: "Hamburguesas",
           id: 2,
+          legend: "Hamburguesas",
           src: "https://freedesignfile.com/upload/2017/07/Hamburger-on-an-chopping-board-HD-picture.jpg",  
         },
 
         { 
-          alt:"ased",
-          caption: "Perros",
-          id: 2,
+          id: 3,
+          legend: "Perros",
           src: "https://images2.alphacoders.com/632/632979.jpg",  
         }
 
