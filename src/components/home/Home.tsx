@@ -2,31 +2,34 @@ import * as React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Item from './Item';
+import ItemList from './ItemList';
 
 interface IShome {
-    activeIndex : number,
-    animating: boolean,
-    gray: number
+    activeIndex:    number,
+    animating:      boolean,
+    gray:           number
 }
 
 interface IslideItem {
-    src: string,
+    src:    string,
     legend: string,
-    id: number
+    id:     number
+}
+
+interface IpedidosItem {
+    id:             number,
+    nombre:         string,
+    precio:         number,
+    img:            string,
+    estrellas:      number,
+    descripcion:    string
 }
 
 interface IPhome {
-    items: IslideItem[];
+    slides:     IslideItem[],
+    masPedios:  IpedidosItem[] 
 }
 
-const item = {
-    id: 1,
-    nombre: "Chuzo de pollo",
-    precio: 2500,
-    img: "https://www.recetin.com/wp-content/uploads/2015/07/pinchos_pollo.jpg",
-    estrellas: 129,
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-}
 
 class Home extends React.Component<IPhome, IShome> {
     constructor(props: IPhome) {
@@ -56,12 +59,17 @@ class Home extends React.Component<IPhome, IShome> {
     }
 
     public renderSlides() {
-        return this.props.items.map( item => (
+        return this.props.slides.map( item => (
             <div style={{userSelect: "none"}} key={item.id}>
                 <img style={{width: "100vw", height: "100vh", filter: `grayscale(70%) brightness(${this.state.gray})`}} src={item.src} />
-                {/* <p>{item.legend}</p> */}
             </div>
         ));
+    }
+
+    public renderItems() {
+        return this.props.masPedios.map( item => (
+            <Item {...item}/>
+        ))
     }
 
     public render() {
@@ -73,8 +81,11 @@ class Home extends React.Component<IPhome, IShome> {
                     {this.renderSlides()}
                 </Carousel>
 
-                <div style={{ padding: 50}}>
-                    <Item {...item}/>
+                <div style={{ padding: 50, paddingTop: 100}}>
+                    <h2 style={{textAlign: "center"}} >Los mas pedidos</h2>
+                    <ItemList>
+                        {this.renderItems()}
+                    </ItemList>
                 </div>
             </div>
         )

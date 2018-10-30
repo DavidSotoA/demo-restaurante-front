@@ -11,10 +11,10 @@ import './css/app.css'
 
 interface Istate {
   content: string,
-  headerOptions: Array<{ name: string, url: string, id: number }>;
-  slideOptions: Array<{src: string, legend: string, id: number }>
+  headerOptions: Array<{ name: string, url: string, id: number }>,
+  slideOptions: Array<{src: string, legend: string, id: number }>,
+  masPedidos:  Array<{id: number, nombre: string, precio: number, img: string, estrellas: number, descripcion: string}>
 }
-
 
 class App extends React.Component<{}, Istate> {
 
@@ -45,7 +45,61 @@ class App extends React.Component<{}, Istate> {
           legend: "Perros",
           src: "https://images2.alphacoders.com/632/632979.jpg",  
         }
-      ]
+      ],
+
+      masPedidos: [{
+        id: 1,
+        nombre: "Chuzo de pollo",
+        precio: 2500,
+        img: "https://www.recetin.com/wp-content/uploads/2015/07/pinchos_pollo.jpg",
+        estrellas: 129,
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    },
+    
+     {
+        id: 2,
+        nombre: "Chuzo de pollo",
+        precio: 2500,
+        img: "https://www.recetin.com/wp-content/uploads/2015/07/pinchos_pollo.jpg",
+        estrellas: 129,
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    },
+    
+     {
+        id: 3,
+        nombre: "Chuzo de pollo",
+        precio: 2500,
+        img: "https://www.recetin.com/wp-content/uploads/2015/07/pinchos_pollo.jpg",
+        estrellas: 129,
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    },
+    
+     {
+        id: 4,
+        nombre: "Chuzo de pollo",
+        precio: 2500,
+        img: "https://www.recetin.com/wp-content/uploads/2015/07/pinchos_pollo.jpg",
+        estrellas: 129,
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    },
+    
+     {
+        id: 5,
+        nombre: "Chuzo de pollo",
+        precio: 2500,
+        img: "https://www.recetin.com/wp-content/uploads/2015/07/pinchos_pollo.jpg",
+        estrellas: 129,
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    },
+    
+    {
+        id: 6,
+        nombre: "Chuzo de pollo",
+        precio: 2500,
+        img: "https://www.recetin.com/wp-content/uploads/2015/07/pinchos_pollo.jpg",
+        estrellas: 129,
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    }]
     };
   }
 
@@ -68,7 +122,7 @@ class App extends React.Component<{}, Istate> {
       <div>
 
         <NavigationBar options={this.state.headerOptions} />
-        <Home items={this.state.slideOptions} />
+        <Home slides={this.state.slideOptions} masPedios={this.state.masPedidos} />
   
         <p>
           <Summary />

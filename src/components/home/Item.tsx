@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {  CardImg, CardBody } from 'reactstrap';
 import { FaCartPlus, FaStar, FaSearchPlus, FaSearchMinus } from 'react-icons/fa';
+import CircleButton from '../Utilities/CircleButton';
  
 
 const styles = {
@@ -39,33 +40,13 @@ const styles = {
     },
 
     button_car_add: {
-        backgroundColor:        "#8BC34A",
-        border:                 "none",
-        color:                  "white",
-        padding:                "16px",
-        textAllign:             "center",
-        textDecoration:         "none",
-        display:                "inline-block",
-        margin:                 "4px 2px",
-        cursor:                 "pointer",
-        borderRadius:           "50%",
         position:               "absolute" as 'absolute',   
-        top:                    128,
+        top:                    140,
         left:                   96.8005,
         backfaceVisibility:     "hidden" as "hidden"
     },
 
     button_get_details: {
-        backgroundColor:        "#C2185B",
-        border:                 "none",
-        color:                  "white",
-        padding:                "12px",
-        textAllign:             "center",
-        textDecoration:         "none",
-        display:                "inline-block",
-        margin:                 "4px 2px",
-        cursor:                 "pointer",
-        borderRadius:           "50%",
         position:               "absolute" as "absolute",
         bottom:                 "20px",
         right:                  "20px",
@@ -86,7 +67,7 @@ const styles = {
     star: {
         color:                  "#FFD700",
         position:               "absolute" as "absolute",
-        bottom:                 "40px",
+        bottom:                 "28px",
         backfaceVisibility:     "hidden" as "hidden"
     }
 }
@@ -127,11 +108,17 @@ class Item extends React.Component<IPitem, ISitem> {
                         <CardBody>
                             <h5 style={styles.title}>{this.props.nombre}</h5>
                             <strong><p style={styles.price}>${this.props.precio}</p></strong>
-                            <button style={styles.button_car_add}><FaCartPlus size="1.4rem"/></button>
+
+                            <CircleButton size={45} bg_color="#8BC34A" style={styles.button_car_add}>
+                                <FaCartPlus color="white" size="1.4rem"/>
+                            </CircleButton>
 
                             <div>
                                 <strong style={styles.star}><FaStar size="1.2rem" color="#FFD700"/><span> {this.props.estrellas}</span></strong>
-                                <button onClick={this.flipCard} style={styles.button_get_details}><FaSearchPlus size="1.1rem"/></button>
+
+                                <CircleButton onClick={this.flipCard} size={40} bg_color="#C2185B"   style={styles.button_get_details}>
+                                    <FaSearchPlus color="white" size="1.2rem"/>
+                                </CircleButton>
                             </div>
                         </CardBody>
                     </div>
@@ -140,10 +127,10 @@ class Item extends React.Component<IPitem, ISitem> {
                         <CardBody>
                             <h5 className="card-title" style={styles.title}>{this.props.nombre}</h5>
                             <p className="card-text" style={ styles.description }>{this.props.descripcion}</p>
-
-                            <div>
-                                <button onClick={this.flipCard} style={styles.button_get_details}><FaSearchMinus size="1.1rem"/></button>
-                            </div>
+                     
+                            <CircleButton onClick={this.flipCard} size={40} bg_color="#C2185B"   style={styles.button_get_details}>
+                                <FaSearchMinus color="white" size="1.2rem"/>
+                            </CircleButton>
                         </CardBody>
                     </div>
 
