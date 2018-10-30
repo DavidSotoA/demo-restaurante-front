@@ -43,7 +43,7 @@ class Home extends React.Component<IPhome, IShome> {
         this.setState({  gray: 1 - scrollPosition*1.7/window.innerHeight });
     }
 
-    public updateCarousel(index: any, element: any) {
+    public updateCarousel(index: number, element: any) {
         this.setState({activeIndex: index});
     }
 

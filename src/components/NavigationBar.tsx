@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NavbarBrand, NavbarToggler, Collapse } from 'reactstrap';
 
 interface Ioption { name: string, url: string, id: number};
 
@@ -7,18 +8,32 @@ interface IPnavigationBar {
 }
 
 interface ISnavigationBar {
-    open: boolean
+    open: boolean,
+    bg_ligth: boolean
 }
 
-  
 class NavigationBar extends React.Component<IPnavigationBar, ISnavigationBar> {
 
     constructor(props: IPnavigationBar) {
         super(props);
-        this.state = {open: false}
+        this.state = {open: false, bg_ligth: true}
 
-        this.renderOptions = this.renderOptions.bind(this);
-        this.toggle = this.toggle.bind(this);
+        this.renderOptions  = this.renderOptions.bind(this);
+        this.update_bg      = this.update_bg.bind(this);
+        this.toggle         = this.toggle.bind(this);
+    }
+
+    public componentDidMount() {
+        window.addEventListener('scroll', this.update_bg);
+    }
+
+    public componentWillMount() {
+        window.addEventListener('scroll', this.update_bg);
+    }
+
+    public update_bg() {
+        const scrollPosition = window.scrollY;
+        this.setState({ open: this.state.open, bg_ligth: scrollPosition/window.innerHeight < 0.77 });
     }
 
     public renderOptions(options: Ioption[]) {
@@ -26,7 +41,7 @@ class NavigationBar extends React.Component<IPnavigationBar, ISnavigationBar> {
                 return (
  
                     <li key={option.id} className="nav-item active">
-                        <a className="nav-link" href={option.url}>{option.name}</a>
+                        <a style={this.state.bg_ligth ? {} : {fontSize: "1.2rem"}}  className="nav-link" href={option.url}>{option.name}</a>
                     </li>
  
                 )
@@ -40,16 +55,13 @@ class NavigationBar extends React.Component<IPnavigationBar, ISnavigationBar> {
 
     public render() {
         return (
-
-            <nav className="navbar navbar-expand-sm navbar-light fixed-top">
-                <a className="navbar-brand" href="/">( ͡° ͜ʖ͡°)</a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"/>
-                    </button>
-
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        {this.renderOptions(this.props.options)}
-                    </div>
+ 
+            <nav className={`navbar navbar-expand-md navbar-${this.state.bg_ligth ? 'ligth': 'dark'} fixed-top`}>
+                <NavbarBrand href="/">( ͡° ͜ʖ͡°)</NavbarBrand>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.open} navbar={true}>
+                    {this.renderOptions(this.props.options)}
+                </Collapse>
             </nav>
 
         )
@@ -58,4 +70,3 @@ class NavigationBar extends React.Component<IPnavigationBar, ISnavigationBar> {
 }
 
 export default NavigationBar;
-
