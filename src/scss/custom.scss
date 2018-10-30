@@ -36,3 +36,11 @@ $navbar-light-toggler-border-color: rgba(white, .7);
 .navbar-ligth .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.1);
 }
+
+.double-card {
+    transform-style:     preserve-3d;
+    transform-origin:    center right;
+    transition:          transform .4s;
+    width:               100%;
+    height:              100%;
+}

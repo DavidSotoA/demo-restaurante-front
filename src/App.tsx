@@ -45,9 +45,6 @@ class App extends React.Component<{}, Istate> {
           legend: "Perros",
           src: "https://images2.alphacoders.com/632/632979.jpg",  
         }
-
-
-
       ]
     };
   }

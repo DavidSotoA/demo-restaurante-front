@@ -6,7 +6,9 @@
       "import-sources-order": "any",
       "named-imports-order": "any"
     }],
-    "interface-name" : false
+    "no-shadowed-variable": false,
+    "interface-name" : false,
+    "object-literal-sort-keys": false
   },
   "jsRules": {
     "no-console": false 
