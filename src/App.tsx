@@ -23,16 +23,16 @@ class App extends React.Component<{}, Istate> {
     this.state = {
       content: "Cargando...",
       headerOptions: [
-        { name: 'Hamburguesas', url: "#", id: 1 },
-        { name: 'Perros', url: "#", id: 2 },
-        { name: 'Chuzos', url: "#", id: 3 }
+        { name: 'Menus', url: "#", id: 1 },
+        { name: 'Reservaciones', url: "#", id: 2 },
+        { name: 'Contactenos', url: "#", id: 3 }
       ],
 
       slideOptions : [
         { 
           id: 1,
           legend: "Arepas",
-          src: "https://static1.squarespace.com/static/50182a8dc4aa5fb338c47d0b/5536e76ae4b0d22ae69a4f16/5536e76ee4b0d22ae69a585d/1429661945758/repitas-recipe.png",  
+          src: "https://www.bellagio.com/content/dam/MGM/bellagio/dining/prime-steakhouse/architecture/bellagio-prime-steakhouse-architecture.tiff",  
         },
         { 
           id: 2,

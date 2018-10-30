@@ -50,7 +50,7 @@ class Home extends React.Component<IPhome, IShome> {
     public renderSlides() {
         return this.props.items.map( item => (
             <div style={{userSelect: "none"}} key={item.id}>
-                <img style={{width: "100vw", height: "100vh", filter: `brightness(${this.state.gray})`}} src={item.src} />
+                <img style={{width: "100vw", height: "100vh", filter: `grayscale(70%) brightness(${this.state.gray})`}} src={item.src} />
                 {/* <p>{item.legend}</p> */}
             </div>
         ));
